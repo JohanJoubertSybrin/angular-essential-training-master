@@ -8,6 +8,6 @@ import { Component } from '@angular/core';
 })
 export class MediaItemComponent {
   onDelete(){
-    console.log('Press delete')
+    console.log('Pressed delete')
   }
 }
