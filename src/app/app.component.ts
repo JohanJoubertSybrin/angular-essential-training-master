@@ -5,18 +5,4 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  firstMediaItem = {
-    id: 1,
-    name: 'Movie Name',
-    medium: 'Series',
-    category: 'Sci-fi',
-    year: 2023,
-    watchedOn: 129000000,
-    isFavorite: false
-  };
-
-  onMediaItemDelete(mediaItem){
-
-  };
-}
+export class AppComponent {}
