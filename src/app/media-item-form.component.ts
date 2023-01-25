@@ -8,18 +8,15 @@ import { lookupListToken } from './providers';
   templateUrl: './media-item-form.component.html',
   styleUrls: ['./media-item-form.component.css']
 })
-export class MediaItemFormComponent implements OnInit{
+export class MediaItemFormComponent implements OnInit {
   form: FormGroup;
 
   constructor(
-    private formBuilder: FormBuilder, 
+    private formBuilder: FormBuilder,
     private mediaItemService: MediaItemService,
-    @Inject(lookupListToken) public lookupLists
-    ){
+    @Inject(lookupListToken) public lookupLists) {}
 
-  }
-
-  ngOnInit(){
+  ngOnInit() {
     this.form = this.formBuilder.group({
       medium: this.formBuilder.control('Movies'),
       name: this.formBuilder.control('', Validators.compose([
@@ -27,30 +24,30 @@ export class MediaItemFormComponent implements OnInit{
         Validators.pattern('[\\w\\-\\s\\/]+')
       ])),
       category: this.formBuilder.control(''),
-      year: this.formBuilder.control('', this.yearValidator)
+      year: this.formBuilder.control('', this.yearValidator),
     });
-  };
+  }
 
-  yearValidator(control: FormControl){
-    if(control.value.trim().length === 0 ){
+  yearValidator(control: FormControl) {
+    if (control.value.trim().length === 0) {
       return null;
     }
     const year = parseInt(control.value, 10);
     const minYear = 1900;
     const maxYear = 2100;
-    if (year >= minYear && year <= maxYear){
+    if (year >= minYear && year <= maxYear) {
       return null;
-    }
-    else{
-      return { year:{
-        min: minYear,
-        max: maxYear
-      }};
+    } else {
+      return {
+        year: {
+          min: minYear,
+          max: maxYear
+        }
+      };
     }
   }
 
   onSubmit(mediaItem) {
-    console.log(mediaItem);
     this.mediaItemService.add(mediaItem);
   }
-};
+}
