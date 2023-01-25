@@ -32,7 +32,10 @@ export class MediaItemFormComponent implements OnInit{
       return null;
     }
     else{
-      return { year: true};
+      return { year:{
+        min: minYear,
+        max: maxYear
+      }};
     }
   }
 
