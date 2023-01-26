@@ -11,7 +11,7 @@ import { CategoryListPipe } from './category-list.pipe';
 import { lookupListToken, lookupLists } from './providers';
 import { MockXHRBackend } from './mock-xhr-backend';
 import { routing } from './app.routing';
-import {NewItemModule} from './new-item/new-item.module'
+//import {NewItemModule} from './new-item/new-item.module'
 
 @NgModule({
   imports: [
@@ -19,7 +19,7 @@ import {NewItemModule} from './new-item/new-item.module'
     //ReactiveFormsModule,
     HttpClientModule,
     routing,
-    NewItemModule
+    //NewItemModule
   ],
   declarations: [
     AppComponent,
